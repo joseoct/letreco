@@ -10,7 +10,7 @@ export default function Home() {
   const { userWord, setAttemp, attemp, setUserWord } = useContext(UserAttempContext);
 
   function handleVerifyWords() {
-    if (userWord.length === 5) {
+    if (userWord[attemp].length === 5) {
       if (userWord[attemp] === correctWord) {
         alert("You win!");
 
@@ -19,6 +19,7 @@ export default function Home() {
         if (attemp === 4) {
           alert("You lose!");
 
+          setAttemp(0);
           setUserWord(Array(5).fill(""));
         } else {
           setAttemp(attemp + 1);
